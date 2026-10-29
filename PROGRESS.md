@@ -51,6 +51,7 @@
       bar; pose overlay; metrics panel (blur/brightness/yaw/pitch/trust/FPS);
       friendly bottom hints; keys q/s/c/m; graceful open-failure and cleanup;
       <5 FPS -> buffalo_s tip; standard-mode ('c') demo of plain recognition.
+- [ ] 9b. scripts: evaluate.py + enroll step (calibrate_quality.py done as 3b)
 - [ ] 10. pytest tests + README polish + final commit
 
 ## Notes
