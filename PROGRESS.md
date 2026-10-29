@@ -46,7 +46,11 @@
       dark+blurry, extreme pose, LiveSession smoothing/majority FPS) - all pass.
 - [ ] 7. Enrollment: build gallery from data/gallery/*/*.jpg (same as 2b)
 - [ ] 8. app.py: Streamlit tabs (Upload photo / Camera snapshot / Live webcam)
-- [ ] 9. scripts: evaluate.py, calibrate_quality.py, live_demo.py
+- [x] 9a. scripts/live_demo.py - webcam / --source camera-index / --source
+      video-file; LiveSession pipeline; decision-colored box + badge + trust
+      bar; pose overlay; metrics panel (blur/brightness/yaw/pitch/trust/FPS);
+      friendly bottom hints; keys q/s/c/m; graceful open-failure and cleanup;
+      <5 FPS -> buffalo_s tip; standard-mode ('c') demo of plain recognition.
 - [ ] 10. pytest tests + README polish + final commit
 
 ## Notes
