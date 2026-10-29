@@ -17,7 +17,11 @@
       --build-gallery). Imports + syntax OK.
 - [ ] 2b. Live test of recognizer with real gallery photos (needs your photos
       in data/gallery/<person>/, then: `python -m src.recognizer --build-gallery`)
-- [ ] 3. src/quality.py: blur, brightness, contrast, face-size checks
+- [x] 3. src/quality.py: assess_quality(image_bgr, bbox) - Laplacian-VoL blur,
+      brightness, contrast, face size (px + frame ratio), normalized subscores
+      (0-1) from config thresholds, human-readable issue list. ~0.94 ms/call.
+- [x] 3b. scripts/calibrate_quality.py: --image mode (original + blurred/dark/
+      bright/low-contrast variants printed) and --webcam live overlay mode.
 - [ ] 4. src/pose.py: yaw / pitch / roll
 - [ ] 5. src/trust.py: Trust Score, decision bands, advice messages
 - [ ] 6. src/pipeline.py: analyze_frame() + LiveSmoother

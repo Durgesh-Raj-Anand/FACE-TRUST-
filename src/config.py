@@ -18,12 +18,19 @@ SMOOTHING_WINDOW: int = 5              # moving average over last N results
 ACCEPT_THRESHOLD: float = 70.0         # >= ACCEPT  -> ACCEPT
 WARN_THRESHOLD: float = 40.0           # >= WARN, < ACCEPT -> WARN  (< WARN -> REJECT)
 
-# ----- Quality checks (placeholder values; calibrate later) ---------------
-BLUR_THRESHOLD: float = 60.0           # Laplacian variance >= this = sharp
-BRIGHTNESS_LOW: float = 60.0           # mean intensity range considered OK
-BRIGHTNESS_HIGH: float = 200.0
-CONTRAST_THRESHOLD: float = 40.0       # std of gray image
-FACE_SIZE_MIN_PX: int = 80             # min face bbox height in pixels
+# ----- Quality checks (all distances/ints in pixels or 8-bit gray levels) -----
+# Blur: variance of the Laplacian (VoL). Higher = sharper.
+BLUR_MIN: float = 100.0     # VoL below this -> "Image is blurry" (0 score)
+BLUR_FULL: float = 300.0    # VoL >= this -> full blur score (1.0), reads crisp
+# Brightness: mean gray intensity inside the face crop.
+BRIGHTNESS_LOW: float = 60.0    # mean < this -> "Too dark"
+BRIGHTNESS_HIGH: float = 200.0  # mean > this -> "Too bright/overexposed"
+# Contrast: std of gray intensity inside the face crop.
+CONTRAST_MIN: float = 40.0    # std below this -> "Low contrast" (0 score)
+CONTRAST_FULL: float = 80.0   # std >= this -> full contrast score (1.0)
+# Face size: bbox height in pixels relative to the frame.
+MIN_FACE_PX: int = 80         # height < this -> "Face too small" (0 score)
+FULL_FACE_PX: int = 240       # height >= this -> full face-size score (1.0)
 
 # ----- Pose limits (degrees, approximate daily-use range) ------------------
 YAW_LIMIT: float = 30.0
