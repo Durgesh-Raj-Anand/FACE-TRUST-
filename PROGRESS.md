@@ -32,8 +32,18 @@
 - [ ] 4b. Live visual check of pose left/right wording on the webcam
       (calibrate once: turn your head left, watch yaw sign flip; one-word fix
       in _yaw_text() if any mirrored display is ever assumed)
-- [ ] 5. src/trust.py: Trust Score, decision bands, advice messages
-- [ ] 6. src/pipeline.py: analyze_frame() + LiveSmoother
+- [x] 5. src/trust.py: compute_trust() - weighted inputs from config
+      TRUST_WEIGHTS (recognition .20 / margin .05 / detector .05 / blur .10 /
+      lighting .25 / face_size .05 / pose .30), RECOG_* + DET_* mappings,
+      Unknown capped at UNKNOWN_SCORE_CAP, decision bands at 70/40, hard rule
+      no-face=REJECT, mode-dependent advice wording (photo vs live).
+- [x] 6. src/pipeline.py: analyze_frame() (the only analysis path; chains
+      recognizer -> quality -> pose -> trust; no-face fast path) + LiveSession
+      (full run every PROCESS_EVERY_N_FRAMES, moving average over
+      SMOOTHING_WINDOW, majority-vote identity, decision recomputed from the
+      smoothed score, measured FPS).
+- [x] 6b. tests/test_trust_pipeline.py: 5 pytest tests (no face, high quality,
+      dark+blurry, extreme pose, LiveSession smoothing/majority FPS) - all pass.
 - [ ] 7. Enrollment: build gallery from data/gallery/*/*.jpg (same as 2b)
 - [ ] 8. app.py: Streamlit tabs (Upload photo / Camera snapshot / Live webcam)
 - [ ] 9. scripts: evaluate.py, calibrate_quality.py, live_demo.py
