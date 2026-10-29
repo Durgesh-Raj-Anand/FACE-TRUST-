@@ -45,7 +45,12 @@
 - [x] 6b. tests/test_trust_pipeline.py: 5 pytest tests (no face, high quality,
       dark+blurry, extreme pose, LiveSession smoothing/majority FPS) - all pass.
 - [ ] 7. Enrollment: build gallery from data/gallery/*/*.jpg (same as 2b)
-- [ ] 8. app.py: Streamlit tabs (Upload photo / Camera snapshot / Live webcam)
+- [x] 8. app.py: Streamlit tabs (Upload photo / Camera snapshot / Live webcam) +
+      sidebar (Enroll person: upload-or-capture -> data/gallery/<name>/ +
+      gallery rebuild; enrolled list; ACCEPT/WARN sliders; compare-vs-plain
+      toggle). Model cached with st.cache_resource; camera released on Stop;
+      verified exception-free via streamlit.testing.v1.AppTest.
+      Run: streamlit run app.py (localhost only).
 - [x] 9a. scripts/live_demo.py - webcam / --source camera-index / --source
       video-file; LiveSession pipeline; decision-colored box + badge + trust
       bar; pose overlay; metrics panel (blur/brightness/yaw/pitch/trust/FPS);
