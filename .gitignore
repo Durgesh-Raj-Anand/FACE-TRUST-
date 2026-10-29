@@ -1,0 +1,28 @@
+# --- Python ---
+.venv/
+__pycache__/
+*.pyc
+.pytest_cache/
+
+# --- Model weights / pickles ---
+*.pkl
+*.onnx
+weights/
+
+# --- Data images (person photos stay local, never pushed) ---
+data/gallery/**/*.jpg
+data/gallery/**/*.jpeg
+data/gallery/**/*.png
+data/test/**/*.jpg
+data/test/**/*.jpeg
+data/test/**/*.png
+!data/**/*.gitkeep
+
+# --- Results artifacts ---
+results/*
+!results/.gitkeep
+
+# --- Env / editor ---
+.env
+.vscode/
+.idea/

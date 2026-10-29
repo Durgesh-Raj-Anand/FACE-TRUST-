@@ -1,0 +1,9 @@
+# FaceTrust dependencies (Python 3.10/3.11)
+insightface
+onnxruntime
+opencv-python
+numpy
+streamlit
+pandas
+matplotlib
+pytest
