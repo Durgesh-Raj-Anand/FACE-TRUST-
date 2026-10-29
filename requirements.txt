@@ -1,9 +1,13 @@
-# FaceTrust dependencies (Python 3.10/3.11)
-insightface
-onnxruntime
-opencv-python
-numpy
-streamlit
-pandas
-matplotlib
-pytest
+# FaceTrust dependencies (Python 3.11, Windows)
+# Versions match the wheels resolved for this machine (see git history).
+numpy==1.26.4
+opencv-python==4.11.0.86
+onnxruntime==1.31.1
+insightface==2.1
+scipy==1.17.1
+onnx==1.23.2
+scikit-image==0.26.0
+streamlit==1.66.1
+pandas==3.0.6
+matplotlib==3.11.2
+pytest==9.2.0
