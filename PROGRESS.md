@@ -22,7 +22,16 @@
       (0-1) from config thresholds, human-readable issue list. ~0.94 ms/call.
 - [x] 3b. scripts/calibrate_quality.py: --image mode (original + blurred/dark/
       bright/low-contrast variants printed) and --webcam live overlay mode.
-- [ ] 4. src/pose.py: yaw / pitch / roll
+- [x] 4. src/pose.py: assess_pose(pose, kps) - magnitudes from InsightFace
+      face.pose (order [pitch,yaw,roll], verified in insightface src), SIGNS
+      re-derived in image space from the 5 kps (yaw: nose vs eye-midpoint x;
+      pitch: nose between eye/mouth lines; roll: eye-line angle). Smooth decay
+      score (POSE_SOFT_FACTOR..YAW_MAX/PITCH_MAX/ROLL_MAX), weighted
+      YAW/PITCH/ROLL via POSE_SCORE_WEIGHTS; issues incl. left/right/up/down.
+      draw_pose() overlays degrees + nose-direction arrow (un-mirrored frames).
+- [ ] 4b. Live visual check of pose left/right wording on the webcam
+      (calibrate once: turn your head left, watch yaw sign flip; one-word fix
+      in _yaw_text() if any mirrored display is ever assumed)
 - [ ] 5. src/trust.py: Trust Score, decision bands, advice messages
 - [ ] 6. src/pipeline.py: analyze_frame() + LiveSmoother
 - [ ] 7. Enrollment: build gallery from data/gallery/*/*.jpg (same as 2b)

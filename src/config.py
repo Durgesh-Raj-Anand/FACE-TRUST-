@@ -32,10 +32,13 @@ CONTRAST_FULL: float = 80.0   # std >= this -> full contrast score (1.0)
 MIN_FACE_PX: int = 80         # height < this -> "Face too small" (0 score)
 FULL_FACE_PX: int = 240       # height >= this -> full face-size score (1.0)
 
-# ----- Pose limits (degrees, approximate daily-use range) ------------------
-YAW_LIMIT: float = 30.0
-PITCH_LIMIT: float = 25.0
-ROLL_LIMIT: float = 30.0
+# ----- Pose limits (degrees; score decays from SOFT_FACTOR*limit to limit) --
+YAW_MAX: float = 35.0      # |yaw| >= this -> issue + zero yaw sub-score
+PITCH_MAX: float = 25.0    # |pitch| >= this -> issue + zero pitch sub-score
+ROLL_MAX: float = 30.0     # |roll| >= this -> issue (head tilted sideways)
+POSE_SOFT_FACTOR: float = 0.5   # decay starts at max * this (smooth score)
+# Sub-score weights for yaw / pitch / roll (must sum to 1.0).
+POSE_SCORE_WEIGHTS: tuple = (0.45, 0.35, 0.20)
 
 # ----- Score weights (must sum to 1.0) ------------------------------------
 WEIGHT_IDENTITY: float = 0.6           # similarity to gallery match
