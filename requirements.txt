@@ -1,6 +1,6 @@
 # FaceTrust dependencies (Python 3.11, Windows)
 # Versions match the wheels resolved for this machine (see git history).
-numpy==1.26.4
+numpy>=2.4.6
 opencv-python==4.11.0.86
 onnxruntime==1.31.1
 insightface==2.1
